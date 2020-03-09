@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 9vh .7fr 1.5fr;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center center;
+    min-height: 100vh;
+    .hello {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        width: 32vw;
+        h2 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            span {
+                font-weight: 500;
+                color: $orange-color;
+            }
+        }
+    }
+    .mainPanel {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        align-self: start;
+    }
+    .transactionsPanel {
+        grid-column: 2 / 3;
+        grid-row: 2 / -1;
+        align-self: start;
+    }
+}

@@ -1,0 +1,49 @@
+@import '../../../../styles/variables';
+
+.wrapper {
+    height: 100%;
+    padding-left: 30px;
+    & * {
+        display: block;
+    }
+    form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    button {
+        display: block;
+        margin-top: 1vh;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        color: #fcfcfc;
+        outline: none;
+        background-color: $green;
+        &:hover {
+            cursor: pointer;
+            background-color: darken($green, 8%);
+        }
+    }
+}
+
+.formGroup {
+    label {
+        font-size: 1.1rem;
+        font-weight: 300;
+        margin-bottom: 5px;
+    }
+    input, select {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        border-bottom: 2px solid #d6d6d6;
+        font-size: 1.6rem;
+        font-family: 'Montserrat', sans-serif;
+        width: 200px;
+    }
+}

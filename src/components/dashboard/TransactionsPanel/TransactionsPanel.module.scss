@@ -1,0 +1,44 @@
+@import '../../../styles/variables';
+
+.wrapper {
+    min-height: 80vh;
+    width: 32vw;
+    border-radius: 20px;
+    padding: 4vh 3vw;
+    background-color: $dashboard-color;
+    h5 {
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+    .transaction {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $transaction-color;
+        width: 100%;
+        border-radius: 10px;
+        padding: 1vh 5vw 1vh 1vw;
+        margin-top: 2vh;
+        cursor: pointer;
+        h6 {
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+        p {
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+        .cash {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.income {
+    border-left: 10px solid $green;
+}
+
+.expense {
+    border-left: 10px solid $red;
+}

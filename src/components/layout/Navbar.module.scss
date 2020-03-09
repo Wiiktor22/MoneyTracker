@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 20% 1fr 7% 5%;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    padding: 4vh 1.5vw;
+    background-color: $main-color;
+    color: $second-color;
+    font-weight: 500;
+    button {
+        display: block;
+        background-color: $orange-color;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        color: #fcfcfc;
+        border: none;
+        height: 4vh;
+        width: 8vw;
+        margin: 0 auto 5vh;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.logo {
+    font-family: 'Passion One', cursive;
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 4rem;
+    letter-spacing: .5px;
+    color: $orange-color;
+    text-transform: uppercase;
+}
+
+.nav {
+    li {
+        list-style: none;
+        font-size: 1.4rem;
+        border-top: .6px solid $second-color;
+        text-align: center;
+        padding: 12px 0;
+        cursor: pointer;
+    }
+    li:nth-last-of-type(1) {
+        border-bottom: .6px solid $second-color;
+    }
+}
