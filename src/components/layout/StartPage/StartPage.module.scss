@@ -1,0 +1,64 @@
+@import './../../../styles/variables';
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.panel, .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+}
+
+.panel {
+    background-color: $main-color;
+    hgroup {
+        padding-bottom: 1vh;
+    }
+    h1 {
+        color: $orange-color;
+        font-family: 'Passion One', cursive;
+        font-size: 5rem;
+        line-height: 5rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    p {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+    button {
+        font-size: 1.8rem;
+        background-color: $orange-color;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 0;
+        margin-top: 1.5vh;
+        width: 150px;
+        outline: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    button:nth-of-type(1) {
+        margin-top: 6vh;
+    }
+}
+
+.form {
+    img {
+        display: block;
+        height: 350px;
+        width: 350px;
+    }
+}
