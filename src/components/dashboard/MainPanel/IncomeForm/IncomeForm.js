@@ -10,6 +10,10 @@ const IncomeForm = () => {
                     <input id="amount" type="number"/>
                 </div>
                 <div className={styles.formGroup}>
+                    <label htmlFor="title">Title</label>
+                    <input id="title" type="text"/>
+                </div>
+                <div className={styles.formGroup}>
                     <label htmlFor="categories">Categories</label>
                     <select id="categories">
                         <option value="Fun time">Fun time</option>
