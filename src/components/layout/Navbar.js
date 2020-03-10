@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './Navbar.module.scss';
 import Footer from './Footer/Footer';
+import { connect } from 'react-redux';
+import { signOut } from './../../store/actions/authActions';
 
-const Navbar = () => {
+const Navbar = ({ signOut }) => {
     return ( 
         <>
             <div className={styles.wrapper}>
@@ -13,11 +15,17 @@ const Navbar = () => {
                         <li>Profile</li>
                     </ul>
                 </nav>
-                <button className={styles.button}>Log out</button>
+                <button className={styles.button} onClick={signOut}>Log out</button>
                 <Footer />
             </div>
         </>
     );
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
  
-export default Navbar;
+export default connect(null, mapDispatchToProps)(Navbar);

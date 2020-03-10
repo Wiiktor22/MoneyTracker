@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Income.module.scss';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { addNewIncome } from './../../../../store/actions/transactionsActions';
 
@@ -30,7 +31,7 @@ const IncomeForm = ({ addNewIncome }) => {
             title,
             categories,
             type: 'income',
-            date: new Date()
+            date: moment().format('MMMM Do YYYY, h:mm:ss a')
         })
     }
     

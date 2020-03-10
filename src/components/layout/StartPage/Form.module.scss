@@ -37,3 +37,16 @@ button {
         cursor: pointer;
     }
 }
+
+.flexWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning {
+    color: red;
+    margin-top: 3vh;
+    font-size: 1.4rem;
+}

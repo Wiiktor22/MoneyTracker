@@ -16,6 +16,7 @@ const SignUpForm = () => {
                 <div className={styles.formGroup}>
                     <label htmlFor="currencies">currency</label>
                     <select id="currencies">
+                        <option value="" disabled hidden>Select currency</option>
                         <option value="pln">PLN</option>
                         <option value="eur">EUR</option>
                         <option value="usd">USD</option>
