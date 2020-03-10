@@ -3,8 +3,10 @@ import styles from './StartPage.module.scss';
 import logo from './../../../assets/FrontPage.svg';
 import LogInForm from './LogInForm/LogInForm';
 import SignUpForm from './SignUpForm/SignUpForm';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const StartPage = () => {
+const StartPage = ({ auth }) => {
     const [page, setPage] = useState(0);
     const handleClick = option => {
         if (page === option) {
@@ -17,6 +19,7 @@ const StartPage = () => {
     }
     return ( 
         <div className={styles.wrapper}>
+            {auth.uid && <Redirect to='/' />}
             <div className={styles.panel}>
                 <hgroup>
                     <h1>Money</h1>
@@ -38,5 +41,11 @@ const StartPage = () => {
         </div>
     );
 }
+
+const mapStateToProps = state => {
+    return {
+        auth: state.firebase.auth
+    }
+}
  
-export default StartPage;
+export default connect(mapStateToProps)(StartPage);

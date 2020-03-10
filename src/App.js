@@ -1,12 +1,13 @@
 import React from 'react';
 import Home from './components/layout/Home/Home';
 import StartPage from './components/layout/StartPage/StartPage';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function App() {
+function App({ auth }) {
   return (
     <Router>
+      {(!auth.uid) && <Redirect to='/login' />}
       <div className="app">
         <Switch>
           <Route exact path='/' component={Home} />
@@ -20,7 +21,7 @@ function App() {
 const mapStateToProps = state => {
   console.log(state)
   return {
-
+    auth: state.firebase.auth
   }
 }
 
