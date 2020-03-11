@@ -38,7 +38,9 @@ export const signUp = newUser => {
             return firestore.collection('users').doc(response.user.uid).set({
                 firstName: newUser.firstName,
                 lastName: newUser.lastName,
-                currencies: newUser.currencies
+                currencies: newUser.currencies,
+                balance: newUser.balance,
+                transactions: newUser.transactions
             })
         }).then(() => {
             dispatch({

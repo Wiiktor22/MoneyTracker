@@ -4,7 +4,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { addNewIncome } from './../../../../store/actions/transactionsActions';
 
-const IncomeForm = ({ addNewIncome }) => {
+const IncomeForm = ({ addNewIncome, authorID }) => {
     const [amount, setAmount] = useState(0);
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState();
@@ -31,6 +31,7 @@ const IncomeForm = ({ addNewIncome }) => {
             title,
             categories,
             type: 'income',
+            authorID,
             date: moment().format('MMMM Do YYYY, h:mm:ss a')
         })
     }
@@ -60,10 +61,16 @@ const IncomeForm = ({ addNewIncome }) => {
     );
 }
 
+const mapStateToProps = state => {
+    return {
+        authorID: state.firebase.auth.uid
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         addNewIncome: (transaction) => dispatch(addNewIncome(transaction))
     }
 }
     
-export default connect(null, mapDispatchToProps)(IncomeForm);
+export default connect(mapStateToProps, mapDispatchToProps)(IncomeForm);

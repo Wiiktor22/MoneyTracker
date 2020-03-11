@@ -23,7 +23,7 @@ const SignUpForm = ({ signUp }) => {
             case 'lastName':
                 setLastName(e.target.value)
                 break;
-            case 'curriencies':
+            case 'currencies':
                 setCurriences(e.target.value)
                 break;
             default:
@@ -37,7 +37,9 @@ const SignUpForm = ({ signUp }) => {
             password,
             firstName,
             lastName,
-            currencies
+            currencies,
+            balance: 0,
+            transactions: []
         })
     }
     return ( 
@@ -55,12 +57,12 @@ const SignUpForm = ({ signUp }) => {
                     <label htmlFor="currencies">currency</label>
                     <select id="currencies" onChange={handleChange} defaultValue={""}>
                         <option value="" disabled hidden>Select currency</option>
-                        <option value="pln">PLN</option>
-                        <option value="eur">EUR</option>
-                        <option value="usd">USD</option>
-                        <option value="gbp">GBP</option>
-                        <option value="chf">CHF</option>
-                        <option value="jpy">JPY</option>
+                        <option value="PLN">PLN</option>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="CHF">CHF</option>
+                        <option value="JPY">JPY</option>
                     </select>
                 </div>
                 <div className={styles.formGroup}>

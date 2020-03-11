@@ -5,10 +5,10 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore';
-import {ReactReduxFirebaseProvider, getFirebase} from 'react-redux-firebase';
+import {ReactReduxFirebaseProvider, getFirebase, isLoaded} from 'react-redux-firebase';
 import fbConfig from './firebase/fbConfig';
 import firebase from 'firebase/app';
 
@@ -20,17 +20,30 @@ const store = createStore(
     )
 );
 
+const rrfConfig = {
+    userProfile: 'users',
+    useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
+}
+
 const rrfProps = {
     firebase,
-    config: fbConfig,
+    config: rrfConfig,
     dispatch: store.dispatch,
     createFirestoreInstance
 }
 
+function AuthIsLoaded({ children }) {
+    const auth = useSelector(state => state.firebase.auth)
+    if (!isLoaded(auth)) return <div>splash screen...</div>;
+    return children
+  }
+
 ReactDOM.render(
     <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
-            <App />
+            <AuthIsLoaded>
+                <App />
+            </AuthIsLoaded>
         </ReactReduxFirebaseProvider>
     </Provider>, 
 document.getElementById('root'));

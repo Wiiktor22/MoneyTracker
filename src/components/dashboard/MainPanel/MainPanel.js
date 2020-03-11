@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styles from './MainPanel.module.scss';
 import IncomeForm from './IncomeForm/IncomeForm';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
+import { connect } from 'react-redux';
 
-const MainPanel = () => {
+const MainPanel = ({ info }) => {
     const [showMenu, setShowMenu] = useState(0);
     const handleClick = option => {
         if (showMenu === option) {
@@ -18,7 +19,7 @@ const MainPanel = () => {
         <div className={styles.wrapper}>
             <div className={styles.panel}>
                 <p className={styles.text}>Available balance: </p>
-                <p className={styles.cash}>15000 PLN</p>
+                <p className={styles.cash}>{info.balance} {info.currencies}</p>
                 <button 
                     onClick={() => handleClick(1)}
                     className={styles.incomeBtn}
@@ -39,5 +40,11 @@ const MainPanel = () => {
         </div>
     );
 }
+
+const mapStateToProps = state => {
+    return {
+        info: state.firebase.profile
+    }
+}
  
-export default MainPanel;
+export default connect(mapStateToProps)(MainPanel);

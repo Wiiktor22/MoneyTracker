@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
-const TransactionsPanel = ({ transactions }) => {
+const TransactionsPanel = ({ isLoaded, isEmpty, info }) => {
     return (
         <div className={styles.wrapper}>
             <h5>Transactions:</h5>
-            {transactions && transactions.map(item => (
+            {(isLoaded === true && isEmpty === false) && (info.length ? (info.map(item => (
                 <div key={item.id} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
                     <div>
                         <h6>{item.title}</h6>
@@ -17,21 +17,23 @@ const TransactionsPanel = ({ transactions }) => {
                     </div>
                     <p className={styles.cash}>{item.amount} PLN</p>
                 </div>
+            ))) : (
+                <>
+                    <p className={styles.info}>You don't have any transactions!</p>
+                    <p className={styles.info}>Add new transactions, using Main Panel in Dashboard.</p>
+                </>
             ))}
         </div>
     );
 }
 
 const mapStatetoProps = state => {
-    console.log(state)
+    console.log(state.firebase.profile.transactions)
     return {
-        transactions: state.firestore.ordered.transactions
+        isLoaded: state.firebase.profile.isLoaded,
+        isEmpty: state.firebase.profile.isEmpty,
+        info: state.firebase.profile.transactions
     }
 }
  
-export default compose(
-    connect(mapStatetoProps),
-    firestoreConnect([{
-        collection: 'transactions'
-    }])
-)(TransactionsPanel);
+export default connect(mapStatetoProps)(TransactionsPanel);
