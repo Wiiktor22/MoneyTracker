@@ -1,34 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './TransactionsPanel.module.scss';
 import { connect } from 'react-redux';
+import ShowTransactions from './ShowTransactions/ShowTransactions';
 // import { firestoreConnect } from 'react-redux-firebase';
 // import { compose } from 'redux';
 
 const TransactionsPanel = ({ isLoaded, isEmpty, info, currency }) => {
+    const [options, setOptions] = useState(0);
+    const handleClick = newOption => {
+        if (options === newOption || newOption === 0) {
+            setOptions(0)
+        } else if (newOption === 1){
+            setOptions(1);
+        } else {
+            setOptions(2);
+        }
+    }
     return (
         <div className={styles.wrapper}>
             <h5>Transactions:</h5>
-            {(isLoaded === true && isEmpty === false) && (info.length ? (info.map(item => (
-                <div key={item.date} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
-                    <div>
-                        <h6>{item.title}</h6>
-                        <p>{item.categories}</p>
-                        <p>{item.date}</p>
-                    </div>
-                    <p className={styles.cash}>{item.amount} {currency}</p>
-                </div>
-            ))) : (
-                <>
-                    <p className={styles.info}>You don't have any transactions!</p>
-                    <p className={styles.info}>Add new transactions, using Main Panel in Dashboard.</p>
-                </>
-            ))}
+            <div className={styles.buttonsWrapper}>
+                <button onClick={() => handleClick(0)}>Default sort</button>
+                <button onClick={() => handleClick(1)}>Sort by income</button>
+                <button onClick={() => handleClick(2)}>Sort by expense</button>
+            </div>
+            {(isLoaded === true && isEmpty === false) && <ShowTransactions option={options}/>}
         </div>
     );
 }
 
 const mapStatetoProps = state => {
-    console.log(state.firebase.profile.transactions)
     return {
         isLoaded: state.firebase.profile.isLoaded,
         isEmpty: state.firebase.profile.isEmpty,

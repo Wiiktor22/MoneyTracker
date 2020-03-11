@@ -15,6 +15,9 @@ const MainPanel = ({ info }) => {
             setShowMenu(2);
         }
     }
+    const reset = () => {
+        setShowMenu(0);
+    }
     return ( 
         <div className={styles.wrapper}>
             <div className={styles.panel}>
@@ -34,8 +37,8 @@ const MainPanel = ({ info }) => {
                 </button>
             </div>
             <div className={styles.form}>
-                {showMenu === 1 && <IncomeForm />}
-                {showMenu === 2 && <ExpenseForm />}
+                {showMenu === 1 && <IncomeForm reset={reset} />}
+                {showMenu === 2 && <ExpenseForm reset={reset} />}
             </div>
         </div>
     );

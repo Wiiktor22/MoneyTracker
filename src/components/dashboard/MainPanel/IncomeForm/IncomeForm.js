@@ -4,7 +4,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { addNewIncome } from './../../../../store/actions/transactionsActions';
 
-const IncomeForm = ({ addNewIncome, authorID, totalBalance }) => {
+const IncomeForm = ({ addNewIncome, authorID, totalBalance, reset }) => {
     const [amount, setAmount] = useState(0);
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState();
@@ -35,6 +35,10 @@ const IncomeForm = ({ addNewIncome, authorID, totalBalance }) => {
             totalBalance,
             date: moment().format('MMMM Do YYYY, h:mm:ss a')
         })
+        setAmount(0);
+        setTitle('');
+        setCategories('');
+        reset();
     }
     
     return ( 
