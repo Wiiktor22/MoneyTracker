@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Expense.module.scss';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { addNewExpense } from './../../../../store/actions/transactionsActions';
 
-const ExpenseForm = ({ addNewExpense }) => {
+const ExpenseForm = ({ addNewExpense, authorID, totalBalance }) => {
     const [amount, setAmount] = useState(0);
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState();
@@ -30,7 +31,9 @@ const ExpenseForm = ({ addNewExpense }) => {
             title,
             categories,
             type: 'expense',
-            date: new Date()
+            authorID,
+            totalBalance,
+            date: moment().format('MMMM Do YYYY, h:mm:ss a')
         })
     }
 
@@ -59,10 +62,17 @@ const ExpenseForm = ({ addNewExpense }) => {
     );
 }
 
+const mapStateToProps = state => {
+    return {
+        authorID: state.firebase.auth.uid,
+        totalBalance: state.firebase.profile.balance
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         addNewExpense: (transaction) => dispatch(addNewExpense(transaction))
     }
 }
     
-export default connect(null, mapDispatchToProps)(ExpenseForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseForm);

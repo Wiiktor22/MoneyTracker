@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './TransactionsPanel.module.scss';
 import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
+// import { firestoreConnect } from 'react-redux-firebase';
+// import { compose } from 'redux';
 
-const TransactionsPanel = ({ isLoaded, isEmpty, info }) => {
+const TransactionsPanel = ({ isLoaded, isEmpty, info, currency }) => {
     return (
         <div className={styles.wrapper}>
             <h5>Transactions:</h5>
             {(isLoaded === true && isEmpty === false) && (info.length ? (info.map(item => (
-                <div key={item.id} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
+                <div key={item.date} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
                     <div>
                         <h6>{item.title}</h6>
                         <p>{item.categories}</p>
-                        <p>{item.date.seconds}</p>
+                        <p>{item.date}</p>
                     </div>
-                    <p className={styles.cash}>{item.amount} PLN</p>
+                    <p className={styles.cash}>{item.amount} {currency}</p>
                 </div>
             ))) : (
                 <>
@@ -32,7 +32,8 @@ const mapStatetoProps = state => {
     return {
         isLoaded: state.firebase.profile.isLoaded,
         isEmpty: state.firebase.profile.isEmpty,
-        info: state.firebase.profile.transactions
+        info: state.firebase.profile.transactions,
+        currency: state.firebase.profile.currencies
     }
 }
  

@@ -4,7 +4,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { addNewIncome } from './../../../../store/actions/transactionsActions';
 
-const IncomeForm = ({ addNewIncome, authorID }) => {
+const IncomeForm = ({ addNewIncome, authorID, totalBalance }) => {
     const [amount, setAmount] = useState(0);
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState();
@@ -32,6 +32,7 @@ const IncomeForm = ({ addNewIncome, authorID }) => {
             categories,
             type: 'income',
             authorID,
+            totalBalance,
             date: moment().format('MMMM Do YYYY, h:mm:ss a')
         })
     }
@@ -63,7 +64,8 @@ const IncomeForm = ({ addNewIncome, authorID }) => {
 
 const mapStateToProps = state => {
     return {
-        authorID: state.firebase.auth.uid
+        authorID: state.firebase.auth.uid,
+        totalBalance: state.firebase.profile.balance
     }
 }
 
