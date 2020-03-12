@@ -4,7 +4,7 @@ import IncomeForm from './IncomeForm/IncomeForm';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
 import { connect } from 'react-redux';
 
-const MainPanel = ({ info }) => {
+const MainPanel = ({ info, balance }) => {
     const [showMenu, setShowMenu] = useState(0);
     const handleClick = option => {
         if (showMenu === option) {

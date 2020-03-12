@@ -56,8 +56,18 @@ const ExpenseForm = ({ addNewExpense, authorID, totalBalance, reset }) => {
                     <label htmlFor="categories">Categories</label>
                     <select id="categories" onChange={handleChange} defaultValue={""}>
                         <option value="" disabled hidden>Select category</option>
-                        <option value="Option1">Option1</option>
-                        <option value="Option2">Option2</option>
+                        <option value="Car & Transport">Car & Transport</option>
+                        <option value="Fees/Bills">Fees/Bills</option>
+                        <option value="Food & Drinks">Food & Drinks</option>
+                        <option value="Home">Home</option>
+                        <option value="Health & Hygiene">Health & Hygiene</option>
+                        <option value="Entertaiment">Entertaiment</option>
+                        <option value="Education">Education</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Kids">Kids</option>
+                        <option value="Flights/Travels">Flights/Travels</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <button>Add</button>

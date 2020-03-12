@@ -56,8 +56,11 @@ const IncomeForm = ({ addNewIncome, authorID, totalBalance, reset }) => {
                     <label htmlFor="categories">Categories</label>
                     <select id="categories" onChange={handleChange} defaultValue={""}>
                         <option value="" disabled hidden>Select category</option>
-                        <option value="Option1">Option1</option>
-                        <option value="Option2">Option2</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Bonus">Bonus</option>
+                        <option value="Gift/Donation">Gift/Donation</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <button>Add</button>

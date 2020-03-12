@@ -1,0 +1,9 @@
+@import './../../../styles/variables';
+
+.wrapper {
+    background-color: $dashboard-color;
+    border-radius: 20px;
+    width: 32vw;
+    height: auto;
+    padding: 4vh 3vw;
+}

@@ -21,7 +21,7 @@ const ShowTransactions = ({ info, currency, option}) => {
             <div>
                 {info.length ? <Filter array={incomesArray} /> : (
                     <>
-                        <p className={styles.info}>You don't have any transactions!</p>
+                        <p className={styles.info}>You don't have any incomes!</p>
                         <p className={styles.info}>Add new transactions, using Main Panel in Dashboard.</p>
                     </>
                 )}
@@ -33,7 +33,7 @@ const ShowTransactions = ({ info, currency, option}) => {
             <div>
                 {info.length ? <Filter array={expensesArray} /> : (
                     <>
-                        <p className={styles.info}>You don't have any transactions!</p>
+                        <p className={styles.info}>You don't have any expenses!</p>
                         <p className={styles.info}>Add new transactions, using Main Panel in Dashboard.</p>
                     </>
                 )}
