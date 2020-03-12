@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './ChartPanel.module.scss';
 import { connect } from 'react-redux';
 import Chart from 'react-apexcharts';
@@ -9,7 +9,6 @@ const ChartPanel = ({ array, isLoaded }) => {
         expenses = array.filter(item => item.type === 'expense');
     }
     const labels = ['Car & Transport','Fees/Bills','Food & Drinks','Home','Health & Hygiene', 'Entertaiment', 'Education', 'Personal', 'Shopping', 'Kids', 'Flights/Travels', 'Other'];
-    const colors = ['red', 'blue', 'green']
     const options = {
         labels,
     };

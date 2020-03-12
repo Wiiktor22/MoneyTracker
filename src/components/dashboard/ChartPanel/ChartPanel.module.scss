@@ -6,4 +6,8 @@
     width: 32vw;
     height: auto;
     padding: 4vh 3vw;
+    transition: box-shadow .3s;
+    &:hover {
+        box-shadow: 0 0 12px rgba(33,33,33,.2);
+    }
 }

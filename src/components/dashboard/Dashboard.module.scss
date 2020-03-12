@@ -2,7 +2,7 @@
 
 .wrapper {
     display: grid;
-    grid-template-rows: 9vh .4fr 1.5fr;
+    grid-template-rows: 9vh 34vh auto;
     grid-template-columns: repeat(2, 1fr);
     place-items: center center;
     min-height: 100vh;
