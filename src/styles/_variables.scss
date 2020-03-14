@@ -7,5 +7,15 @@ $orange-color: #e79b28;
 $dashboard-color: #eeeeee7a;
 $transaction-color: #e3e3e3b3;
 
+//Colors
 $green: #0c821f;
 $red: #d10d0d;
+
+//Breakpoints
+$bp: (
+    xs: 375px,
+    s: 414px,
+    m: 768px,
+    l: 1024px,
+    xl: 1366px
+)

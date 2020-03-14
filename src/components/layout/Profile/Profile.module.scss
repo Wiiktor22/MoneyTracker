@@ -7,6 +7,9 @@
         line-height: 9vh;
         font-size: 2.6rem;
         font-weight: 300;
+        @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+            font-size: 1.7rem;
+        }
     }
     .info {
         display: flex;
@@ -52,12 +55,24 @@
             font-weight: 300;
             margin-bottom: 5px;
         }
+        @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+            width: 70vw;
+        }
+        @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+            width: 90vw;
+            flex-direction: column;
+            height: auto;
+        }
     }
 }
 form {
     display: flex;
     flex-direction: column;
     margin-left: 6vw;
+    @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+        margin-top: 3vh;
+        margin-left: 0;
+    }
 }
 
 .warning {
@@ -70,4 +85,12 @@ form {
     color: green;
     margin-top: 2vh;
     font-size: 1.3rem;
+}
+
+.margin {
+    margin-left: 240px;
+    @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+        margin-left: 0;
+        margin-top: 8vh;
+    }
 }

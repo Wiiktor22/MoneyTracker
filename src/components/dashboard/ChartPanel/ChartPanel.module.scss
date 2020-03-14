@@ -7,7 +7,23 @@
     height: auto;
     padding: 4vh 3vw;
     transition: box-shadow .3s;
+    margin-bottom: 5vh;
     &:hover {
         box-shadow: 0 0 12px rgba(33,33,33,.2);
+    }
+    @media (max-width: map-get($map: $bp, $key: xl)) {
+        width: 36vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: l)) {
+        width: 34vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: l)) {
+        width: 60vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+        width: 75vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+        width: 90vw;
     }
 }

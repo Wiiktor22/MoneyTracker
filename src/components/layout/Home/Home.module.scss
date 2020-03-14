@@ -1,0 +1,9 @@
+@import './../../../styles/variables';
+
+.main {
+    margin-left: 240px;
+    @media (max-width: map-get($map: $bp, $key: m)) {
+        margin-left: 0;
+        margin-top: 7vh;
+    }
+}

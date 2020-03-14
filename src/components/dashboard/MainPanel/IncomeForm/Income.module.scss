@@ -46,5 +46,8 @@
         font-size: 1.4rem;
         font-family: 'Montserrat', sans-serif;
         width: 200px;
+        @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+            width: 250px;
+        }
     }
 }

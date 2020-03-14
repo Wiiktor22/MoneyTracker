@@ -1,10 +1,11 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import Dashboard from '../../dashboard/Dashboard';
+import styles from './Home.module.scss';
 
 const Home = () => {
     return ( 
-        <div style={{ marginLeft: 240}}>
+        <div className={styles.main}>
             <Navbar />
             <Dashboard />
         </div>

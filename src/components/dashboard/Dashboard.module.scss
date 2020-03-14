@@ -10,6 +10,7 @@
         grid-column: 1 / 2;
         grid-row: 1 / 2;
         width: 32vw;
+        order: -2;
         h2 {
             font-size: 2.6rem;
             font-weight: 300;
@@ -18,20 +19,61 @@
                 color: $orange-color;
             }
         }
+        @media (max-width: map-get($map: $bp, $key: xl)) {
+            width: 36vw;
+        }
+        @media (max-width: map-get($map: $bp, $key: l)) {
+            width: 34vw;
+        }
+        @media (max-width: map-get($map: $bp, $key: l)) {
+            width: 60vw;
+        }
+        @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+            width: 75vw;
+        }
+        @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+            width: 90vw;
+        }
     }
     .mainPanel {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
         align-self: start;
+        @media (max-width: map-get($map: $bp, $key: l)) {
+            grid-row: 3 / 4;
+        }
     }
     .chartPanel {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
         align-self: start;
+        @media (max-width: map-get($map: $bp, $key: l)) {
+            grid-row: 2 / 3;
+        }
     }
     .transactionsPanel {
         grid-column: 2 / 3;
         grid-row: 2 / -1;
         align-self: start;
+        @media (max-width: map-get($map: $bp, $key: l)) {
+            grid-column: 1 / 2;
+            grid-row: 4 / -1;
+        }
+    }
+    @media (max-width: map-get($map: $bp, $key: xl)) {
+        grid-template-rows: 9vh 40vh auto;
+    }
+    @media (max-width: map-get($map: $bp, $key: l)) {
+        width: calc(100vw - 240px);
+        grid-template-columns: 1fr;
+        grid-gap: 0 100px;
+        grid-template-rows: 9vh auto 40vh;
+    }
+    @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+        width: 100%;
+        grid-template-rows: 9vh auto 31vh;
+    }
+    @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+        grid-template-rows: 9vh auto auto;
     }
 }

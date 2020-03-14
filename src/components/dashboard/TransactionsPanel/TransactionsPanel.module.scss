@@ -52,15 +52,47 @@
             &:nth-of-type(2) {
                 border-left: 15px solid $green;
                 border-right: 15px solid transparent;
+                @media (max-width: map-get($map: $bp, $key: xl)) {
+                    border-left: 16px solid $green;
+                    border-right: 16px solid transparent;
+                }
             }
             &:nth-of-type(3) {
                 border-left: 15px solid $red;
                 border-right: 15px solid transparent;
+                @media (max-width: map-get($map: $bp, $key: xl)) {
+                    border-left: 16px solid $red;
+                    border-right: 16px solid transparent;
+                }
             }
+            @media (max-width: map-get($map: $bp, $key: xl)) {
+                width: 130px;
+            }
+            @media (max-width: map-get($map: $bp, $key: l)) {
+                width: 160px;
+            }
+            @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+                margin-bottom: 1.5vh;
+            }
+        }
+        @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+            flex-direction: column;
         }
     }
     &:hover {
         box-shadow: 0 0 12px rgba(33,33,33,.2);
+    }
+    @media (max-width: map-get($map: $bp, $key: xl)) {
+        width: 36vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: l)) {
+        width: 60vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+        width: 75vw;
+    }
+    @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
+        width: 90vw;
     }
 }
 

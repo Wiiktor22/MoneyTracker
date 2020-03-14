@@ -10,6 +10,11 @@ const Navbar = ({ signOut }) => {
         <>
             <div className={styles.wrapper}>
                 <h1 className={styles.logo}>Money <span className={styles.orange}> Tracker</span></h1>
+                <div className={styles.burger}>
+                    <div className={styles.bar1}></div>
+                    <div className={styles.bar2}></div>
+                    <div className={styles.bar3}></div>
+                </div>
                 <nav className={styles.nav}>
                     <ul>
                         <Link to='/'><li>Dashboard</li></Link>

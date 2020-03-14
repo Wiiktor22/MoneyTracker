@@ -7,7 +7,7 @@ import CurrencyForm from './CurrencyForm/CurrencyForm';
 const Profile = ({ info, email }) => {
     const [showForm, setShowForm] = useState(false);
     return ( 
-        <div style={{ marginLeft: 240}}>
+        <div className={styles.margin}>
             <Navbar />
             <div className={styles.wrapper}>
                 <p className={styles.hello}>Check information about your profile!</p>
