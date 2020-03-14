@@ -33,7 +33,8 @@ const ExpenseForm = ({ addNewExpense, authorID, totalBalance, reset }) => {
             type: 'expense',
             authorID,
             totalBalance,
-            date: moment().format('MMMM Do YYYY, h:mm:ss a')
+            date: moment().format('MMMM Do YYYY, h:mm:ss a'),
+            createdAt: new Date()
         })
         setAmount(0);
         setTitle('');

@@ -15,7 +15,7 @@ const Dashboard = ({ info }) => {
                 <MainPanel />
             </div>
             <div className={styles.chartPanel}>
-                <ChartPanel />
+                <ChartPanel/>
             </div>
             <div className={styles.transactionsPanel}>
                 <TransactionsPanel />

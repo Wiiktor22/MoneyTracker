@@ -3,6 +3,7 @@ import Home from './components/layout/Home/Home';
 import StartPage from './components/layout/StartPage/StartPage';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
+import Profile from './components/layout/Profile/Profile';
 
 function App({ auth }) {
   return (
@@ -12,6 +13,7 @@ function App({ auth }) {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/login' component={StartPage} />
+          <Route path='/profile' component={Profile} />
         </Switch>
       </div>
     </Router>

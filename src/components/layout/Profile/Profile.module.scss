@@ -1,0 +1,73 @@
+@import './../../../styles/variables';
+
+.wrapper {
+    padding: 0 6vw;
+    .hello {
+        height: 9vh;
+        line-height: 9vh;
+        font-size: 2.6rem;
+        font-weight: 300;
+    }
+    .info {
+        display: flex;
+        background-color: $dashboard-color;
+        height: 30vh;
+        width: 34vw;
+        border-radius: 20px;
+        padding: 4vh 3vw;
+        transition: box-shadow .3s;
+        &:hover {
+            box-shadow: 0 0 12px rgba(33,33,33,.2); 
+        }
+        li {
+            font-size: 1.4rem;
+            font-weight: 300;
+            list-style: none;
+            padding-bottom: .4vh;
+            span {
+                color: $orange-color;
+                font-weight: 500;
+            }
+        }
+        button {
+            margin-top: 4vh;
+            width: 200px;
+            font-size: 1.5rem;
+        }
+        select {
+            border: none;
+            background-color: transparent;
+            outline: none;
+            border-bottom: 2px solid $main-color;
+            font-size: 1.6rem;
+            font-family: 'Montserrat', sans-serif;
+            width: 200px;
+            margin-bottom: 3vh;
+            &:focus {
+                border-bottom: 2px solid $orange-color;
+            }
+        }
+        label {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+    }
+}
+form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6vw;
+}
+
+.warning {
+    color: red;
+    margin-top: 2vh;
+    font-size: 1.3rem;
+}
+
+.success {
+    color: green;
+    margin-top: 2vh;
+    font-size: 1.3rem;
+}

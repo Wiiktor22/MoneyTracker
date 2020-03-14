@@ -42,15 +42,22 @@
 }
 
 .nav {
+    ul {
+        border-top: .6px solid $second-color;
+    }
     li {
         list-style: none;
         font-size: 1.4rem;
-        border-top: .6px solid $second-color;
         text-align: center;
         padding: 12px 0;
         cursor: pointer;
+        text-decoration: none;
     }
     li:nth-last-of-type(1) {
         border-bottom: .6px solid $second-color;
+    }
+    a {
+        text-decoration: none;
+        color: $second-color;
     }
 }

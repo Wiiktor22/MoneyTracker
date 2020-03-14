@@ -3,8 +3,20 @@ import { connect } from 'react-redux';
 import styles from './../../TransactionsPanel.module.scss';
 
 const Filter = ({ array, currency }) => {
+    function compare(a, b) {
+        const aDate = a.createdAt
+        const bDate = b.createdAt
+        let comprasion = 0;
+        if (aDate < bDate) {
+            comprasion = 1;
+        } else {
+            comprasion = -1;
+        }
+        return comprasion
+    }
+    const newArray = array.sort(compare);
     return (
-        array.map(item => (
+        newArray.map(item => (
             <div key={item.date} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
                 <div>
                     <h6>{item.title}</h6>

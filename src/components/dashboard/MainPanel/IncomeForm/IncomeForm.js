@@ -33,7 +33,8 @@ const IncomeForm = ({ addNewIncome, authorID, totalBalance, reset }) => {
             type: 'income',
             authorID,
             totalBalance,
-            date: moment().format('MMMM Do YYYY, h:mm:ss a')
+            date: moment().format('MMMM Do YYYY, h:mm:ss a'),
+            createdAt: new Date()
         })
         setAmount(0);
         setTitle('');

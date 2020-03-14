@@ -36,7 +36,7 @@ function AuthIsLoaded({ children }) {
     const auth = useSelector(state => state.firebase.auth)
     if (!isLoaded(auth)) return <div>splash screen...</div>;
     return children
-  }
+}
 
 ReactDOM.render(
     <Provider store={store}>

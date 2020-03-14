@@ -14,6 +14,12 @@ const transactionsReducer = (state = initialState, action) => {
         case 'ADD_EXPENSE_ERROR':
             console.log(action.err)
             return state;
+        case 'CHANGE_CURRENCY':
+            console.log('sukces')
+            return state;
+        case 'CHANGE_CURRENCY_ERROR':
+            console.log(action.err)
+            return state;
         default:
             return state;
     }
