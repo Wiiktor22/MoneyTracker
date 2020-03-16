@@ -44,7 +44,7 @@ const SignUpForm = ({ signUp }) => {
     }
     return ( 
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.flexWrapper}>
                 <div className={styles.formGroup}>
                     <label htmlFor="firstName">first name</label>
                     <input id="firstName" type="text" onChange={handleChange}/>

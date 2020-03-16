@@ -11,6 +11,7 @@ import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-fir
 import {ReactReduxFirebaseProvider, getFirebase, isLoaded} from 'react-redux-firebase';
 import fbConfig from './firebase/fbConfig';
 import firebase from 'firebase/app';
+import LoadingPage from './components/LoadingPage/LoadingPage';
 
 const store = createStore(
     rootReducer,
@@ -34,7 +35,7 @@ const rrfProps = {
 
 function AuthIsLoaded({ children }) {
     const auth = useSelector(state => state.firebase.auth)
-    if (!isLoaded(auth)) return <div>splash screen...</div>;
+    if (!isLoaded(auth)) return <LoadingPage />;
     return children
 }
 
