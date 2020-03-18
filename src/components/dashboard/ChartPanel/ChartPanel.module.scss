@@ -22,6 +22,7 @@
     }
     @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
         width: 75vw;
+        z-index: -1;
     }
     @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
         width: 90vw;

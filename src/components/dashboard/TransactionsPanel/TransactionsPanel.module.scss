@@ -16,6 +16,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
         background-color: $transaction-color;
         width: 100%;
         border-radius: 10px;
@@ -36,6 +37,9 @@
         .cash {
             font-size: 1.8rem;
             font-weight: 700;
+        }
+        @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+            z-index: -1;
         }
     }
     .buttonsWrapper {
@@ -78,6 +82,9 @@
         @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
             flex-direction: column;
         }
+        .btn {
+            margin-top: 1vh;
+        }
     }
     &:hover {
         box-shadow: 0 0 12px rgba(33,33,33,.2);
@@ -111,4 +118,18 @@
 
 .expense {
     border-left: 10px solid $red;
+}
+
+.searchInput {
+    background-color: white;
+    color: black;
+    width: 200px;
+    margin-top: .5vh;
+    padding: 7px 12px;
+    border: 1px solid darken($color: $dashboard-color, $amount: 20%);
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    outline: none;
 }

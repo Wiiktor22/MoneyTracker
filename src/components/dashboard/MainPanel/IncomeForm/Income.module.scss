@@ -49,5 +49,8 @@
         @media (max-width: map-get($map: $bp, $key: s)) and (orientation: portrait) {
             width: 250px;
         }
+        &:focus {
+            border-bottom: 2px solid $orange-color;
+        }
     }
 }

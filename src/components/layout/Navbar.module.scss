@@ -99,3 +99,36 @@
         display: block;
     }
 }
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 7vh;
+    height: 30vh;
+    left: 0;
+    right: 0;
+    background-color: $main-color;
+    z-index: 2;
+    padding: 20px 60px;
+    a {
+        font-size: 1.6rem;
+        text-decoration: none;
+        color: $orange-color;
+        border-top: 1px solid $orange-color;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        &:nth-last-of-type(1) {
+            border-bottom: 1px solid $orange-color;
+        }
+    }
+    .strong {
+        font-weight: 700;
+        color: $orange-color;
+        font-size: 1.7rem;
+        margin-top: 3vh;
+    }
+}

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import styles from './../../TransactionsPanel.module.scss';
 
 const Filter = ({ array, currency }) => {
+    const [searchText, setSearchText] = useState('');
+
     function compare(a, b) {
         const aDate = a.createdAt
         const bDate = b.createdAt
@@ -14,18 +16,33 @@ const Filter = ({ array, currency }) => {
         }
         return comprasion
     }
-    const newArray = array.sort(compare);
+    const handleChange = e => {
+        setSearchText(e.target.value);
+    }
+
+    const firstArray = array.sort(compare);
+    const newArray = firstArray.filter(item => item.title.includes(searchText))
     return (
-        newArray.map(item => (
-            <div key={item.date} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
-                <div>
-                    <h6>{item.title}</h6>
-                    <p>{item.categories}</p>
-                    <p>{item.date}</p>
-                </div>
-                <p className={styles.cash}>{item.amount} {currency}</p>
+        <>
+            <div className={styles.buttonsWrapper}>
+                <input 
+                    className={styles.searchInput} 
+                    type="text" 
+                    onChange={handleChange}
+                    placeholder="search by title"
+                />
             </div>
-        ))
+            {newArray.map(item => (
+                <div key={item.date} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
+                    <div>
+                        <h6>{item.title}</h6>
+                        <p>{item.categories}</p>
+                        <p>{item.date}</p>
+                    </div>
+                    <p className={styles.cash}>{item.amount} {currency}</p>
+                </div>
+            ))}
+        </>
     );
 }
 
