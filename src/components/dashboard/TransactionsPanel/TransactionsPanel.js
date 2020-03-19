@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styles from './TransactionsPanel.module.scss';
 import { connect } from 'react-redux';
 import ShowTransactions from './ShowTransactions/ShowTransactions';
-// import { firestoreConnect } from 'react-redux-firebase';
-// import { compose } from 'redux';
 
 const TransactionsPanel = ({ isLoaded, isEmpty, info, currency }) => {
     const [options, setOptions] = useState(0);

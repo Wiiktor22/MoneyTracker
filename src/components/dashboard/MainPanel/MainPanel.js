@@ -4,7 +4,7 @@ import IncomeForm from './IncomeForm/IncomeForm';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
 import { connect } from 'react-redux';
 
-const MainPanel = ({ info, balance }) => {
+const MainPanel = ({ info, isEmpty, isLoaded }) => {
     const [showMenu, setShowMenu] = useState(0);
     const handleClick = option => {
         if (showMenu === option) {
@@ -18,11 +18,15 @@ const MainPanel = ({ info, balance }) => {
     const reset = () => {
         setShowMenu(0);
     }
+    let balance = null;
+    if (isLoaded === true && isEmpty === false) {
+        balance = info.balance.toFixed(2)
+    }
     return ( 
         <div className={styles.wrapper}>
             <div className={styles.panel}>
                 <p className={styles.text}>Available balance: </p>
-                <p className={styles.cash}>{info.balance} {info.currencies}</p>
+                <p className={styles.cash}>{balance} {info.currencies}</p>
                 <button 
                     onClick={() => handleClick(1)}
                     className={styles.incomeBtn}
@@ -45,8 +49,11 @@ const MainPanel = ({ info, balance }) => {
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
-        info: state.firebase.profile
+        info: state.firebase.profile,
+        isEmpty: state.firebase.profile.isEmpty,
+        isLoaded: state.firebase.profile.isLoaded
     }
 }
  

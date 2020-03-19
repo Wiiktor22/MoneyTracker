@@ -3,7 +3,7 @@ import styles from './../TransactionsPanel.module.scss';
 import { connect } from 'react-redux';
 import Filter from './Filter/Filter';
 
-const ShowTransactions = ({ info, currency, option}) => {
+const ShowTransactions = ({ info, option }) => {
     if (option === 0) {
         return ( 
             <div>
@@ -44,8 +44,7 @@ const ShowTransactions = ({ info, currency, option}) => {
 
 const mapStateToProps = state => {
     return {
-        info: state.firebase.profile.transactions,
-        currency: state.firebase.profile.currencies
+        info: state.firebase.profile.transactions
     }
 }
 

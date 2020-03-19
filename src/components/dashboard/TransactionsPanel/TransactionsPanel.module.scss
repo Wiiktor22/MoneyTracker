@@ -37,9 +37,20 @@
         .cash {
             font-size: 1.8rem;
             font-weight: 700;
+            @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+                margin-right: 10px;
+            }
         }
-        @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
-            z-index: -1;
+        .deleteBtn {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 20px;
+            @media (max-width: map-get($map: $bp, $key: m)) and (orientation: portrait) {
+                right: 5px;
+            }
         }
     }
     .buttonsWrapper {
