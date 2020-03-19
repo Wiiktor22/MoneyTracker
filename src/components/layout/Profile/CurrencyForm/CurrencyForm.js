@@ -15,7 +15,6 @@ const CurrencyForm = ({ currentCurrency, authorID, changeCurrency }) => {
         }
     }
     const handleSubmit = e => {
-        console.log('działam')
         e.preventDefault();
         changeCurrency({
             newCurrency,
