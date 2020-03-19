@@ -17,7 +17,7 @@ Soon will be added...
 
 ```bash
 
-git clone https://github.com/olafsulich/SocialDev.git
+git clone https://github.com/Wiiktor22/MoneyTracker
 
 npm install
 
