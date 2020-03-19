@@ -41,7 +41,7 @@ const Filter = ({ array, currency, deleteItem }) => {
                     onChange={handleChange}
                     placeholder="search by title"
                 />
-                <button onClick={switchDelete} style={{marginTop: '.5vh'}}>Delete</button>
+                <button onClick={switchDelete} style={{marginTop: '.5vh'}}>Delete transaction</button>
             </div>
             {newArray.map(item => (
                 <div key={item.date} className={item.type === 'income' ? `${styles.transaction} ${styles.income}` : `${styles.transaction} ${styles.expense}`}>
