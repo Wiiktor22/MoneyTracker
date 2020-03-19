@@ -11,7 +11,17 @@ This app was build in React + Redux, for authorization and data storage I have u
 
 ## Live :earth_africa:
 
-Soon will be added...
+<a href="https://moneytracker-28506.web.app/React/login" target="_blank">MoneyTracker Live</a>
+
+##### Test user :running:
+If you don't want to sign up, you can use Test User
+
+```bash
+
+test@gmail.com
+Password12
+
+```
 
 ## Instalation :computer:
 
